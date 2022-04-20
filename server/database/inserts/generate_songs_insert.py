@@ -9,20 +9,18 @@ def insert_to_songs(id, book):
     template = "INSERT INTO WOLF.SONG (ID, LENGTH, PRODUCER) " \
                "VALUES ({id}, '{length}', '{producer}');"
 
-    result = template.format(
+    return template.format(
         id=id,
         length=book['length'],
         producer=book['producer'],
     )
-
-    return result
 
 
 def insert_to_products(id, song):
     template = "INSERT INTO WOLF.PRODUCT (ID, PRICE, NAME, GENRE, RELEASE, IMAGEURL, DESCRIPTION) " \
                "VALUES ({id}, {price}, '{name}', '{genre}', '{date}', '{imageURL}', '{description}');"
 
-    result = template.format(
+    return template.format(
         id=id,
         price=song['price'],
         name=song['title'],
@@ -31,8 +29,6 @@ def insert_to_products(id, song):
         imageURL=song['imageUrl'],
         description=song['description'],
     )
-
-    return result
 
 
 def get_songs():
