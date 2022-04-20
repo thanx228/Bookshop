@@ -9,21 +9,19 @@ def insert_to_books(id, book):
     template = "INSERT INTO WOLF.BOOK (ID, PAGENUMBER, TYPE, AUTHOR) " \
                "VALUES ({id}, {pagenumber}, '{type}', '{author}');"
 
-    result = template.format(
+    return template.format(
         id=id,
         pagenumber=random.randint(1, 500),
         type=book['type'],
         author=book['author'],
     )
 
-    return result
-
 
 def insert_to_products(id, book):
     template = "INSERT INTO WOLF.PRODUCT (ID, PRICE, NAME, GENRE, RELEASE, LANGUAGE, IMAGEURL, DESCRIPTION) " \
                "VALUES ({id}, {price}, '{name}', '{genre}', '{date}', '{language}', '{imageURL}', '{description}');"
 
-    result = template.format(
+    return template.format(
         id=id,
         price=book['price'],
         name=book['title'],
@@ -33,8 +31,6 @@ def insert_to_products(id, book):
         language=book['language'],
         description=book['description'].replace("'", "\'\'"),
     )
-
-    return result
 
 
 def get_books():
